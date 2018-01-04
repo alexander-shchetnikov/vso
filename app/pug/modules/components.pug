@@ -1,0 +1,39 @@
+mixin button(color,value,link)
+    if link
+        a.button(class="button-"+color,href=link)= value
+    else
+        button.button(class="button-"+color)= value
+
+mixin list(list)
+    for li in list
+        li
+            a(href=li.href)= li.name
+
+mixin subjectFrame(subjects)
+    for sub in subjects
+        .frame_cover
+            .frame.subject_frame
+                .frame_header
+                    h2= sub.name
+                    p= sub.date.toUpperCase()
+                .frame_body
+                    .frame_desc
+                        p= 'Отборочный этап: ' + sub.qDate
+                    .frame_info
+                        p.participant_count= 'Участников: '+ sub.pCount
+
+mixin formsInputs(input_list)
+    for elem in input_list
+        if elem.type != 'gender'
+            .form_elem
+                label(for=elem.id)= elem.name
+                .form_input
+                    input(type=elem.type,id=elem.id,name=elem.id,placeholder=elem.placeholder,required)
+        else if elem.type == 'gender'
+            .form_elem
+                label= elem.name
+                .form_input
+                    input(type='radio',id='genderMale',name='fGender',value='Male',checked)
+                    label(for='genderMale') Мужской
+                    input(type='radio',id='genderFemale',value='Female',name='fGender')
+                    label(for='genderFemale') Женский

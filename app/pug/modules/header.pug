@@ -1,0 +1,22 @@
+header.header.cover
+    .header__top
+        .header__logo.logo
+                a(href="/")
+                    img(src="img/logo_vso.png", alt="", srcset="")
+                    .logo__headers
+                        h2 КемГУ
+                        h1 Всероссийская студенческая олимпиада 2017 / 2018
+    if !auth
+        .header__bottom
+            .header__main_menu.main_menu
+                .main_menu__elem.main_menu__list
+                    nav.menu_list
+                        +list(main_list)
+                .main_menu__elem.main_menu__user_cntrl
+                    .user_cntrl
+                        if login
+                            p Антон Власов
+                        else
+                            +button('blue','Принять участие','/signup.html')
+                            +button('grey','Войти','/login.html')
+

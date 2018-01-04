@@ -1,0 +1,16 @@
+footer.footer.cover
+    .footer__top
+        .footer__footer_list
+            nav.footer_list
+                +list(footer_list)
+    hr
+    .footer__bottom
+        .footer__footer_info
+            .footer_info__sponsor_links
+                nav.sponsors_list
+                    for sponsor in sponsors_list
+                        li
+                            a(href=sponsor.href)
+                                img(src=sponsor.src, alt=sponsor.name)
+            .footer_info__additional_info
+                p   Кемеровский государственный университет, 2017

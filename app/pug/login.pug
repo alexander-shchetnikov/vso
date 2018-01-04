@@ -1,0 +1,29 @@
+extends layouts/main
+
+block variables
+    - var main_list = [{name: "Правила проведения", href: '/rules'}, {name: "Все олимпиады", href: 'https://mon-vso.ru/events'}]
+    - var footer_list = [{name: "Документы", href: '/documents'}, {name: "Контакты", href: '/contacts'},{name:'Поддержка',href:'/support'}]
+    - var sponsors_list = [{name: "Министерство образования и науки Российской Федерации", href: 'http://xn--80abucjiibhv9a.xn--p1ai/',src:'/img/logo_mon.png'}, {name: "ВСО", href: 'https://mon-vso.ru/events',src:'/img/logo_vso.png'}]
+    - var login_form =[{name:'Электронная почта:',id:'fEmal',type:'email',placeholder:''},{name:'Пароль:',id:'fPassword',type:'password',placeholder:''}]
+    - var auth = true
+    - var signup = false
+
+block page_content
+    .body__main_container
+        .main_container.cover
+            if signup
+                .main_content__auth
+                    .frame-s
+                        h3 Регистрация успешно завершена
+            else
+                .main_content__auth
+                    .frame.auth_frame
+                        .auth_frame__header
+                            h3 Вход для участника
+                        form.auth_frame__form(method='POST')
+                            .frame_form.frame_form_login
+                                +formsInputs(login_form)
+                            .frame_form.frame_form_bottom
+                                .frame_form_ready
+                                    +button('blue','Войти')
+                                    a(href='reset-password') Восстановить пароль
