@@ -110,6 +110,9 @@ gulp.task('build',['clean','pug','sass'],function(){
     ])
         .pipe(gulp.dest('dist/css'));
 
+    var build_images = gulp.src('app/img/**/*')
+        .pipe(gulp.dest('dist/img')); 
+        
     var build_fonts = gulp.src('app/fonts/**/*')
         .pipe(gulp.dest('dist/fonts'));
 

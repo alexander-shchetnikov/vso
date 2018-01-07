@@ -1,7 +1,7 @@
 header.header.cover
     .header__top
         .header__logo.logo
-                a(href="/")
+                a(href="./index.html")
                     img(src="img/logo_vso.png", alt="", srcset="")
                     .logo__headers
                         h2 КемГУ
@@ -17,6 +17,6 @@ header.header.cover
                         if login
                             p Антон Власов
                         else
-                            +button('blue','Принять участие','/signup.html')
-                            +button('grey','Войти','/login.html')
+                            +button('blue','Принять участие','./signup.html')
+                            +button('grey','Войти','./login.html')
 
